@@ -9,7 +9,7 @@ class MainHeader extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final style = Theme.of(context).textTheme.displaySmall!.copyWith(
+    final style = Theme.of(context).textTheme.headlineSmall!.copyWith(
           color: AppColors.primaryWhite,
         );
 

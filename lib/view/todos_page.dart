@@ -13,8 +13,8 @@ class TodosPage extends ConsumerWidget {
       appBar: const MainHeader(),
       body: Column(children: [
         for (var todo in todos) Text(todo.title),
-        AddTodoButton(),
       ]),
+      floatingActionButton: AddTodoButton(),
     );
   }
 }
