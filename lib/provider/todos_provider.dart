@@ -24,13 +24,20 @@ class TodosNotifier extends _$TodosNotifier {
     state = newState as List<TodoType>;
   }
 
-  void completeTodo({required int id}) {
+  void handleFinishTodo({required int id}) {
     int index = state.indexWhere((element) => element.id == id);
     if (index != -1) {
       state[index] = TodoType(
           id: state[index].id,
           title: state[index].title,
           finish: !state[index].finish);
+    }
+  }
+
+  void deleteTodo({required int id}) {
+    int index = state.indexWhere((element) => element.id == id);
+    if (index != -1) {
+      state.removeAt(index);
     }
   }
 }
