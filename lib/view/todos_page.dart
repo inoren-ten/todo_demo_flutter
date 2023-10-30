@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:namer_app/component/button/add_todo_button.dart';
 import 'package:namer_app/component/header/main_header.dart';
+import 'package:namer_app/component/todo/todo_list_box.dart';
 import 'package:namer_app/provider/todos_provider.dart';
 
 class TodosPage extends ConsumerWidget {
@@ -11,9 +12,16 @@ class TodosPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: const MainHeader(),
-      body: Column(children: [
-        for (var todo in todos) Text(todo.title),
-      ]),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+            for (var todo in todos)
+              TodoListBox(
+                id: todo.id,
+              ),
+          ]),
+        ),
+      ),
       floatingActionButton: AddTodoButton(),
     );
   }
