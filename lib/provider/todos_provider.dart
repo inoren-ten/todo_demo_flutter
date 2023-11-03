@@ -14,10 +14,10 @@ class TodosNotifier extends _$TodosNotifier {
     return [];
   }
 
-  void addTodo() {
+  void addTodo({required String title}) {
     final TodoType newTodo = TodoType(
       id: state.length,
-      title: 'task',
+      title: title,
       finish: false,
     );
     final newState = [...state, newTodo];
