@@ -14,12 +14,6 @@ class _AddTodoPageState extends ConsumerState<AddTodoPage> {
 
   @override
   Widget build(BuildContext context) {
-    if (title.length > 0) {
-      backgroundColor = AppColors.primaryBlue;
-    } else {
-      backgroundColor = AppColors.primaryPaleGray;
-    }
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.primaryWhite,
@@ -36,7 +30,11 @@ class _AddTodoPageState extends ConsumerState<AddTodoPage> {
         title: Text('Todoを追加'),
         actions: [
           ElevatedButton(
-            style: ButtonStyle(),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: title.length > 0
+                  ? AppColors.primaryBlue
+                  : AppColors.primaryPaleGray,
+            ),
             child: Text('追加'),
             onPressed: () {
               if (title.length > 0) {

@@ -7,14 +7,16 @@ class TodoListBox extends ConsumerWidget {
   const TodoListBox({
     super.key,
     required this.id,
+    required this.title,
+    required this.finish,
   });
 
   final int id;
+  final String title;
+  final bool finish;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final todos = ref.watch(todosNotifierProvider);
-    final todo = todos[id];
     final notifier = ref.read(todosNotifierProvider.notifier);
 
     return SizedBox(
@@ -29,12 +31,12 @@ class TodoListBox extends ConsumerWidget {
             children: [
               Row(children: [
                 Checkbox(
-                  value: todo.finish,
+                  value: finish,
                   onChanged: (bool? check) {
                     notifier.handleFinishTodo(id: id);
                   },
                 ),
-                Text(todo.title),
+                Text(title),
               ]),
               TextButton(
                   onPressed: () {
