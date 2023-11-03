@@ -5,9 +5,14 @@ import 'package:namer_app/component/header/main_header.dart';
 import 'package:namer_app/component/todo/todo_list_box.dart';
 import 'package:namer_app/provider/todos_provider.dart';
 
-class TodosPage extends ConsumerWidget {
+class TodosPage extends ConsumerStatefulWidget {
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<TodosPage> createState() => _TodosPageState();
+}
+
+class _TodosPageState extends ConsumerState<TodosPage> {
+  @override
+  Widget build(BuildContext context) {
     final todos = ref.watch(todosNotifierProvider);
 
     return Scaffold(
@@ -18,6 +23,8 @@ class TodosPage extends ConsumerWidget {
             for (var todo in todos)
               TodoListBox(
                 id: todo.id,
+                title: todo.title,
+                finish: todo.finish,
               ),
           ]),
         ),
