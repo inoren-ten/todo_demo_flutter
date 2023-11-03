@@ -21,6 +21,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  pedantic_mono:
   flutter_lints: ^2.0.0
   riverpod_generator: ^2.3.5
   build_runner: ^2.4.6
