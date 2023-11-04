@@ -12,15 +12,22 @@ class TodosPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: const MainHeader(),
-      body: SingleChildScrollView(
-        child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-          for (var todo in todos)
-            TodoListBox(
-              id: todo.id,
-              title: todo.title,
-              finish: todo.finish,
-            ),
-        ]),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SingleChildScrollView(
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+              SizedBox(height: 15),
+              for (var todo in todos)
+                TodoListBox(
+                  id: todo.id,
+                  title: todo.title,
+                  finish: todo.finish,
+                ),
+            ]),
+          ),
+        ],
       ),
       floatingActionButton: AddTodoButton(),
     );
