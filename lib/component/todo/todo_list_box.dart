@@ -36,7 +36,7 @@ class TodoListBox extends ConsumerWidget {
                     notifier.handleFinishTodo(id: id);
                   },
                 ),
-                Text(title),
+                Text(title, overflow: TextOverflow.ellipsis, maxLines: 1),
               ]),
               TextButton(
                   onPressed: () {
