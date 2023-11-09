@@ -16,7 +16,7 @@ class TodosNotifier extends _$TodosNotifier {
 
   void addTodo({required String title}) {
     final TodoType newTodo = TodoType(
-      id: state.length,
+      id: state.isEmpty ? 0 : state.length,
       title: title,
       finish: false,
     );

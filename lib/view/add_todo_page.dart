@@ -35,7 +35,7 @@ class _AddTodoPageState extends ConsumerState<AddTodoPage> {
           ),
           title: Text('Todoを追加'),
           actions: [
-            ElevatedButton(
+            TextButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: backgroundColor,
               ),
